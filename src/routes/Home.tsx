@@ -13,6 +13,7 @@ import type { Coin } from "types";
 const PAGINATION_LIMIT = 27;
 
 function Home() {
+  // TODO: implement pagination properly
   const { data, status } = useAsync(() =>
     api.listCoins({ limit: PAGINATION_LIMIT }),
   );

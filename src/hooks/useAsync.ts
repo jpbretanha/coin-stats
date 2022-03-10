@@ -44,6 +44,7 @@ const reducer = (state: State, action: Action): State => {
     }
 }
 
+// TODO: add possibility to paginate function
 const useAsync = (asyncFunction: any) => {
  const [state, dispatch] = useReducer(reducer, initialState)
  
@@ -60,8 +61,6 @@ const useAsync = (asyncFunction: any) => {
     request()
  }, [])
 
- console.log(state);
- 
  return state
 }
 
