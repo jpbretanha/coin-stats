@@ -8,7 +8,7 @@ type Props = {
   id: string;
 };
 
-function CoinCard(props: Props) {
+const CoinCard: React.FC<Props> = (props) => {
   const { name, imageUrl, price, id } = props;
   const formattedPrice = price.toFixed(2);
 
@@ -34,6 +34,6 @@ function CoinCard(props: Props) {
       </Flex>
     </Link>
   );
-}
+};
 
 export default CoinCard;
