@@ -13,7 +13,7 @@ describe("CoinCard component", () => {
       />,
       { wrapper: MemoryRouter },
     );
-
+    expect(screen.getByRole("link")).toBeInTheDocument();
     expect(screen.getByText(/Ethereum/i)).toBeInTheDocument();
     expect(screen.getByText("$210.13")).toBeInTheDocument();
     expect(screen.getByAltText(/Ethereum logo/)).toBeInTheDocument();

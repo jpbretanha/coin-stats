@@ -44,15 +44,16 @@ const reducer = (state: State, action: Action): State => {
     }
 }
 
+type AsyncFunction = () => Promise<any>;
+
 // TODO: add possibility to paginate function
-const useAsync = (asyncFunction: any) => {
+const useAsync = (asyncFunction: AsyncFunction) => {
  const [state, dispatch] = useReducer(reducer, initialState)
  
  useEffect(() => {
     const request = async () => {
         try {
             const response = await asyncFunction()
-            
             dispatch({type: 'success', data: response.data} as Action)
         } catch (error: any) {
             dispatch({type: 'error', error})
