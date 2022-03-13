@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from "axios";
 
-const API_URL = 'https://api.coinstats.app/public/v1'
+export const API_URL = "https://api.coinstats.app/public/v1";
 
 const instance = axios.create({
-    baseURL: API_URL
-})
+  baseURL: API_URL,
+});
 
-export default instance
+export default instance;

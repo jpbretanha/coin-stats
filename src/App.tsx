@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "routes/Home";
-import CoinPage from "routes/CoinPage";
+import CoinPage from "routes/Coinpage";
 
 function App() {
   return (

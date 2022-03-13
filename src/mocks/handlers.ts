@@ -1,37 +1,32 @@
 // src/mocks/handlers.js
-import { rest } from 'msw'
+import { rest } from "msw";
+import { API_URL } from "services/api";
 
 export const handlers = [
-  rest.post('/login', (req, res, ctx) => {
-    // Persist user's authentication in the session
-    sessionStorage.setItem('is-authenticated', 'true')
-
-    return res(
-      // Respond with a 200 status code
-      ctx.status(200),
-    )
-  }),
-
-  rest.get('/user', (req, res, ctx) => {
-    // Check if the user is authenticated in this session
-    const isAuthenticated = sessionStorage.getItem('is-authenticated')
-
-    if (!isAuthenticated) {
-      // If not authenticated, respond with a 403 error
-      return res(
-        ctx.status(403),
-        ctx.json({
-          errorMessage: 'Not authorized',
-        }),
-      )
-    }
-
-    // If authenticated, return a mocked user details
+  rest.get(API_URL + "/coins/:id", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
-        username: 'admin',
+        coin: {
+          icon: "https://static.coinstats.app/coins/EthereumOCjgD.png",
+          id: "ethereum",
+          name: "Ethereum",
+          price: 2568.825863353705,
+          priceChange1d: -0.42,
+          symbol: "ETH",
+        },
       }),
-    )
+    );
   }),
-]
+  rest.get(API_URL + "/charts", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        chart: [
+          [1647115500, 2577.5384, 0.06605408, 1],
+          [1647117600, 2589.0786, 0.06609742, 1],
+        ],
+      }),
+    );
+  }),
+];

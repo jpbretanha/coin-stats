@@ -48,7 +48,11 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "setupFiles": ["jest-canvas-mock"]
+  },
   "devDependencies": {
+    "jest-canvas-mock": "^2.3.1",
     "msw": "^0.39.1"
   }
 }
