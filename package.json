@@ -49,7 +49,7 @@
     ]
   },
   "jest": {
-    "setupFiles": ["jest-canvas-mock"]
+    "resetMocks": false
   },
   "devDependencies": {
     "jest-canvas-mock": "^2.3.1",
