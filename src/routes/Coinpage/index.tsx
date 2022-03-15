@@ -91,6 +91,7 @@ function CoinPage() {
         </StatGroup>
       </Flex>
       <Chart
+        data-testid="chart"
         options={CHART_CONFIG.options}
         lineSeries={linearSeriesData}
         autoWidth

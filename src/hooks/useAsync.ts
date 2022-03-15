@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 
-const initialState = {
+const initialState: State = {
   status: "pending",
   data: null,
   error: null,
