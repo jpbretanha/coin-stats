@@ -7,13 +7,13 @@ const initialState: State = {
 };
 
 type State = {
-  data: null | [] | object | undefined;
+  data: any;
   status: string;
   error: null | object | undefined | string;
 };
 
 type Action = {
-  type: string;
+  type: "pending" | "success" | "error";
   data?: null | object | [];
   error: null | object | undefined | string;
 };
@@ -40,7 +40,7 @@ const reducer = (state: State, action: Action): State => {
         error: action.error,
       };
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 
