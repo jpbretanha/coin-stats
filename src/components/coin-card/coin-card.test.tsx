@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import CoinCard from ".";
+import CoinCard from "./coin-card";
 
 describe("CoinCard component", () => {
   it("should render coin information", () => {

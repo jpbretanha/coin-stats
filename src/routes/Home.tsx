@@ -5,7 +5,7 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
-import CoinCard from "components/CoinCard";
+import CoinCard from "components/coin-card";
 import useAsync from "hooks/useAsync";
 import * as api from "services/handlers";
 import type { Coin } from "types";

@@ -3,19 +3,19 @@ import { useEffect, useReducer } from "react";
 const initialState: State = {
   status: "pending",
   data: null,
-  error: null,
+  error: false,
 };
 
 type State = {
   data: any;
   status: string;
-  error: null | object | undefined | string;
+  error: boolean
 };
 
 type Action = {
   type: "pending" | "success" | "error";
   data?: null | object | [];
-  error: null | object | undefined | string;
+  error: boolean
 };
 
 const reducer = (state: State, action: Action): State => {
@@ -24,13 +24,13 @@ const reducer = (state: State, action: Action): State => {
       return {
         data: null,
         status: "pending",
-        error: null,
+        error: false,
       };
     case "success": {
       return {
         status: "success",
         data: action.data,
-        error: null,
+        error: false,
       };
     }
     case "error":
@@ -56,7 +56,7 @@ const useAsync = (asyncFunction: AsyncFunction) => {
         const response = await asyncFunction();
         dispatch({ type: "success", data: response.data } as Action);
       } catch (error: any) {
-        dispatch({ type: "error", error });
+        dispatch({ type: "error", error: true });
       }
     };
     request();

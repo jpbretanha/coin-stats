@@ -18,7 +18,7 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import * as api from "services/handlers";
 import type { Coin } from "types";
-import { CHART_CONFIG } from "../constants";
+import { CHART_CONFIG } from "./constants";
 
 type ChartArray = {
   chart: Array<Array<number>>;
